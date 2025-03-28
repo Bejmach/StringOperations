@@ -1,4 +1,4 @@
-#include "../include/StringOperations.h"
+#include <StringOperations.h>
 
 #include <algorithm>
 #include <cctype>
