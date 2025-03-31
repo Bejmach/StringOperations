@@ -3,6 +3,23 @@
 #include <algorithm>
 #include <cctype>
 
+#include<fstream>
+#include<sstream>
+
+std::string SO::ReadFile(std::string path){
+	std::ifstream file(path, std::ios::binary);
+
+	if(!file){
+		std::cout<<"failed to open file: "<<path<<std::endl;
+		return{};
+	}
+
+	std::ostringstream content;
+	content << file.rdbuf();
+	file.close();
+	return content.str();
+}
+
 std::vector<std::string> SO::Split(std::string str, std::string delimiter){
 	std::string pushed;
 
