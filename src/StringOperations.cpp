@@ -77,3 +77,60 @@ int SO::Value(std::string str){
 	}
 	return value;
 }
+
+bool SO::IsInt(std::string str){
+	int i = 0;
+	if(str[0] == '-'){
+		i=1;
+	}
+	for(int i=0; i<str.size(); i++){
+		if(!std::isdigit(str[i])){
+			return false;
+		}
+	}
+	return true;
+}
+
+bool SO::IsFloat(std::string str){
+	int i=0;
+	if(str[0] == '-'){
+		i=1;
+	}
+	bool foundDot = false;
+	for(int i=0; i<str.size(); i++){
+		if(!std::isdigit(str[i])){
+			if(str[i] == '.' && !foundDot){
+				foundDot = true;
+			}
+			else if(i == str.size()-1 && str[i] == 'f'){
+				break;
+			}
+			else{
+				return false;
+			}
+		}
+	}
+	return true;
+}
+bool SO::IsDouble(std::string str){
+	int i=0;
+	if(str[0] == '-'){
+		i=1;
+	}
+	bool foundDot = false;
+	for(int i=0; i<str.size(); i++){
+		if(!std::isdigit(str[i])){
+			if(str[i] == '.' && !foundDot){
+				foundDot = true;
+			}
+			else{
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+int SO::ToInt(std::string str){
+	
+}
